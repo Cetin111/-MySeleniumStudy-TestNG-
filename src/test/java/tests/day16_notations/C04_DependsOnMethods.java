@@ -47,6 +47,11 @@ public class C04_DependsOnMethods  {
         WebElement sonucYaziElementi= driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         Assert.assertTrue(sonucYaziElementi.getText().contains("Nutella"));
     }
+
+    //test 3 calisirken once test ikiye gider onu calistirir, test2 calisirsa test 3 de calidsir.
+    // eger test2 calismazsa test 3 de calismaz ignore olur. test3 calisirken test 2 ye bagli, test 2 de test 1 e bagli deyip test1 e gitmez.
+    //boyle geriye dogru zincirleme reaksiyon yapmiyor. sadece bagli oldugu bir onceki test methoduna bakiyor.
+
     @Test
     public void test04(){
         System.out.println("bak bu calisti");
