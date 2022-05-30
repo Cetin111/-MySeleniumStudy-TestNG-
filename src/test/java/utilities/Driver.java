@@ -18,10 +18,10 @@ public class Driver {
     public static WebDriver getDriver(){
         if (driver==null) {
             switch (ConfigReader.getProperty("browser")){
-          //    case "chrome" :
-          //        WebDriverManager.chromedriver().setup();
-          //        driver = new ChromeDriver();
-          //        break;
+              case "chrome" :
+                  WebDriverManager.chromedriver().setup();
+                  driver = new ChromeDriver();
+                  break;
                 case "safari" :
                     WebDriverManager.safaridriver().setup();
                     driver=new SafariDriver();

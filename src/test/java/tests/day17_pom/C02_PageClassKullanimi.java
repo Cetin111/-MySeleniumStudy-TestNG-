@@ -7,6 +7,7 @@ import pages.AmazonPage;
 import utilities.Driver;
 
 public class C02_PageClassKullanimi {
+
     @Test
     public void test01() {
         AmazonPage amazonpage = new AmazonPage();
