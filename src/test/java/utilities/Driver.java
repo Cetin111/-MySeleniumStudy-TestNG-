@@ -13,8 +13,23 @@ public class Driver {
     Driver class'indan static method'lar kullanarak
     driver olusturup, ilgili ayarlarin yapilmasi
     ve en sonda driver'in kapatilmasi tercih edilmistir.
+
+   POM'de Driver class'ındaki getDriver()'nun obje oluşturularak kullanılmasını
+engellemek için
+Singleton pattern kullanımı benimsenmiştir
+Singleton pattern: tekli kullanım, bir classın farklı classlardan
+obje oluşturularak kullanımını engellemek için kullanılır
+        bunu saglamak icin yapmamiz gereken sey oldukca basit,
+        obje olusturmak icin kullanilan consructer i private yaptiginizda
+        baska claslarda Driver clasindan obje olusturulmasi mumkun olmaz.
+
      */
-    static WebDriver driver;
+
+   private Driver (){
+
+   }
+
+   static WebDriver driver;
     public static WebDriver getDriver(){
         if (driver==null) {
             switch (ConfigReader.getProperty("browser")){
