@@ -7,9 +7,10 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class NegativeLoginTest {
-    BrcPage brcPage = new BrcPage();
+
     @Test
-    public void yanlisSifre() {
+    public void yanlisSifre() throws InterruptedException {
+        BrcPage brcPage = new BrcPage();
 
         // Bir test method olustur positiveLoginTest()
         // https://www.bluerentalcars.com/ adresine git
@@ -31,11 +32,13 @@ public class NegativeLoginTest {
         Assert.assertTrue(brcPage.ikinciLoginButonu.isDisplayed());
 
         Driver.closeDriver();
+
     }
 
 
     @Test
-    public void yanlisEmail() {
+    public void yanlisEmail() throws InterruptedException {
+        BrcPage brcPage = new BrcPage();
         // Bir test method olustur positiveLoginTest()
         // https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));
@@ -51,11 +54,13 @@ public class NegativeLoginTest {
         Assert.assertTrue(brcPage.ikinciLoginButonu.isDisplayed());
 
         Driver.closeDriver();
+
     }
 
 
     @Test
     public void yanlisSifreVePassword() {
+        BrcPage brcPage = new BrcPage();
         // Bir test method olustur positiveLoginTest()
         // https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));

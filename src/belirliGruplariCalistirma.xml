@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<!--
+    Xml dosyalar calistiracagimiz suite, test veya diger secenekleri bir goreve gore gruplandirma icin
+de kullanilabilir.
+    Bu durumda calisacak tum test methodlarini veya claslari tek tek xml dosyasina tanimlamak yerine
+framework'umuzde istedigimiz test methodlarini istedigimiz gruplara dahil edebiliriz.
+     Bunu yapabilmek icin once test methodlarimizi istedigimiz gruplara dahil eder sonra
+     xml dosyasinda
+     1- hangi gruplar calisacak yada calismayacak (include, exclude)
+     2- bu gruplar hangi package altinda aranacak
+-->
+<suite name="belirli gruplar">
+    <test name="belirli gruplar">
+    <groups>
+        <run>
+            <exclude name="grup1"></exclude>
+            <include name="grup2"></include>
+            <!-- day16 daki priority tecpro testi grup1 de
+                    dependson testi grup1 ve grup2
+                    soft asert test01 grup2
+
+                    iclude degilde sadece exclude isaretlenseydi. grup1 disinda ne kadar package ne kadar clas varsa
+             hepsini calistirir.
+
+                    ikisini birden yazinca grup1 calismasin grup2 calissin yaptik
+              ama calismadi cunki package lerde extends olanlar var. o nedenle hata veriyor
+
+            -->
+        </run>
+    </groups>
+        <packages>
+            <package name="tests.day16_notations"></package>
+            <package name="tests.day17_pom"></package>
+            <!-- gruplarin bulundugu package leri buraya ekliyoruz -->
+        </packages>
+    </test>
+</suite>

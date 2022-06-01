@@ -52,7 +52,7 @@ public class C04_DependsOnMethods  {
     // eger test2 calismazsa test 3 de calismaz ignore olur. test3 calisirken test 2 ye bagli, test 2 de test 1 e bagli deyip test1 e gitmez.
     //boyle geriye dogru zincirleme reaksiyon yapmiyor. sadece bagli oldugu bir onceki test methoduna bakiyor.
 
-    @Test
+    @Test (groups = { "grup1" , "grup2" })
     public void test04(){
         System.out.println("bak bu calisti");
     }
