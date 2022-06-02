@@ -21,6 +21,17 @@ public class Q3_SoftAssert {
      *     T2 : Verify item prices are sorted from low to high with hard Assert
      */
     // Verify item prices are sorted from low to high with hard Assert
+
+    /*
+     * https://www.saucedemo.com/ adresine gidin
+     * Kullanıcı adını standard_user olarak girin
+     * Şifreyi secret_sauce olarak girin
+     * Giriş düğmesine tıklayın
+     *      T1 : Soft Assert ile düşükten yükseğe fiyatı seçin
+     *      T2 : Hard Assert ile ürün fiyatlarının düşükten yükseğe doğru sıralandığını doğrulayın
+     */
+    // Hard Assert ile ürün fiyatlarının düşükten yükseğe doğru sıralandığını doğrulayın
+
     @Test
     public void sauceDemoSoft(){
         Driver.getDriver().get("https://www.saucedemo.com/");
@@ -30,6 +41,7 @@ public class Q3_SoftAssert {
         sdpage.loginButton.click();
         Select select =new Select(sdpage.dropDown);
         select.selectByVisibleText("Price (low to high)");
+
         String expected = "PRICE (LOW TO HIGH)";
         String actual = select.getFirstSelectedOption().getText();
         String actual2 = Driver.getDriver().findElement(By.className("active_option")).getText();
@@ -37,6 +49,7 @@ public class Q3_SoftAssert {
         softAssert.assertEquals(actual,expected);
         softAssert.assertEquals(actual2,expected);
     }
+
     @Test
     public void sauceDemoHard(){
         Driver.getDriver().get("https://www.saucedemo.com/");
@@ -44,8 +57,10 @@ public class Q3_SoftAssert {
         sdpage.username.sendKeys("standard_user");
         sdpage.password.sendKeys("secret_sauce");
         sdpage.loginButton.click();
+
         Select select =new Select(sdpage.dropDown);
         select.selectByIndex(2);
+
         ArrayList<Double> urunlerDouble = new ArrayList<>();
         for (WebElement each: sdpage.urunler){
             //String fiyatStr = each.getText().replaceAll("$", "");

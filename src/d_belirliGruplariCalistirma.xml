@@ -16,12 +16,12 @@ framework'umuzde istedigimiz test methodlarini istedigimiz gruplara dahil edebil
         <run>
             <exclude name="grup1"></exclude>
             <include name="grup2"></include>
-            <!-- day16 daki priority tecpro testi grup1 de
-                    dependson testi grup1 ve grup2
-                    soft asert test01 grup2
+            <!-- day16 daki priority tecpro testine  grup1,
+                    dependson testine grup1 ve grup2,
+                    softasert test01 e grup2 dedik
 
-                    iclude degilde sadece exclude isaretlenseydi. grup1 disinda ne kadar package ne kadar clas varsa
-             hepsini calistirir.
+             include degilde sadece exclude isaretlenseydi. grup1 disinda ne kadar package ne kadar clas varsa
+     hepsini calistirir.
 
                     ikisini birden yazinca grup1 calismasin grup2 calissin yaptik
               ama calismadi cunki package lerde extends olanlar var. o nedenle hata veriyor
