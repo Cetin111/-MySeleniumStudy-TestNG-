@@ -27,7 +27,7 @@ public abstract class TestBaseRapor {
         //yesil yerleri kendine gore ayarla degistir.
 
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
-        extentReports.setSystemInfo("Enviroment","QA");
+        extentReports.setSystemInfo("Environment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
         extentReports.setSystemInfo("Automation Engineer", "Ilker");
         extentHtmlReporter.config().setDocumentTitle("Rapor");

@@ -5,39 +5,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
-public class Driver {
-    /*
-    POM'de Driver icin TestBase class'ina extends etmek yerine
-    Driver class'indan static method'lar kullanarak
-    driver olusturup, ilgili ayarlarin yapilmasi
-    ve en sonda driver'in kapatilmasi tercih edilmistir.
-
-   POM'de Driver class'ındaki getDriver()'nun obje oluşturularak kullanılmasını
-engellemek için
-Singleton pattern kullanımı benimsenmiştir
-Singleton pattern: tekli kullanım, bir classın farklı classlardan
-obje oluşturularak kullanımını engellemek için kullanılır
-        bunu saglamak icin yapmamiz gereken sey oldukca basit,
-        obje olusturmak icin kullanilan consructer i private yaptiginizda
-        baska claslarda Driver clasindan obje olusturulmasi mumkun olmaz.
-
-     */
-
-   private Driver (){
-
-   }
-
-   static WebDriver driver;
-    public static WebDriver getDriver(){
+public class CrossDriver {
+    private  CrossDriver(){
+    }
+    static WebDriver driver;
+    public static WebDriver getDriver(String browser){
+        browser = (browser == null) ? ConfigReader.getProperty("browser") : browser;
         if (driver==null) {
-            switch (ConfigReader.getProperty("browser")){
-              case "chrome" :
-                  WebDriverManager.chromedriver().setup();
-                  driver = new ChromeDriver();
-                  break;
+            switch (browser){
+                case "chrome" :
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
                 case "edge" :
                     WebDriverManager.edgedriver().setup();
                     driver=new EdgeDriver();
@@ -54,8 +35,7 @@ obje oluşturularak kullanımını engellemek için kullanılır
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         }
         return driver;
     }

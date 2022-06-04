@@ -31,7 +31,7 @@ public class C03_PozitiveLoginTestiRaporlu  extends TestBaseRapor {
         extentTest.info("Gecerli email girildi");
 
         // test data password : 12345
-        brcPage.passwordTextBox.sendKeys(ConfigReader.getProperty("brc****Password"));
+        brcPage.passwordTextBox.sendKeys(ConfigReader.getProperty("brcValidPassword"));
         extentTest.info("Gecerli password girildi");
 
         // login butonuna tiklayiniz
@@ -43,7 +43,6 @@ public class C03_PozitiveLoginTestiRaporlu  extends TestBaseRapor {
         String expectedUserName = ConfigReader.getProperty("brcValidUserName");
         Assert.assertEquals(actuelUserName,expectedUserName);
         extentTest.pass("kullanici basarili sekilde giris yapti");
-
 
 
         Driver.closeDriver();
